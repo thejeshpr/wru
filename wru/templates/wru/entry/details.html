@@ -1,0 +1,27 @@
+
+{% extends 'wru/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div>
+    <div class="card">
+        <div class="card-header">
+            <h3><i class="{{ entry.feeling.icon }}"></i> Entry</h3>
+        </div>
+        <div class="card-body">
+            <strong>Place:</strong> {{ entry.place.name }}<br/>
+            <strong>Feeling:</strong> <i class="{{ entry.feeling.icon }}"></i><br/>
+            <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
+            <strong>Why?:</strong> {{ entry.why }}<br/>
+            <strong>Tags:</strong>
+            {% for tag in entry.tags.all %}{{ tag }}&nbsp;{% endfor %}
+            <br/>
+            <hr/>
+            <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'wru:entry-delete' entry.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

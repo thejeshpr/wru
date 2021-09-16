@@ -1,0 +1,23 @@
+
+{% extends 'wru/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div>
+    <div class="card">
+        <div class="card-header">
+            <h3><i class="las la-key"></i> Feeling</h3>
+        </div>
+        <div class="card-body">
+            <strong>Name:</strong> {{ feeling.name }}<br/>
+            <strong>Icon:</strong> {{ feeling.icon }}
+            <br/>
+            <hr/>
+            <a class="btn btn-primary" href="{% url 'wru:feeling-update' feeling.pk %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'wru:feeling-delete' feeling.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
