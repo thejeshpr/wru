@@ -65,6 +65,12 @@ class FeelingDeleteView(edit.DeleteView):
     success_url ="/"
 
 
+class FeelingListView(generic.ListView):
+    model = Feeling
+    template_name = "wru/feeling/list.html"
+    context_object_name = "feelings"    
+
+
 class EntryCreateView(edit.CreateView):
     model = Entry
     form_class = EntryForm

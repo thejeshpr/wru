@@ -12,6 +12,7 @@ urlpatterns = [
     path('place/<int:pk>/update', views.PlaceUpdateView.as_view(), name='place-update'),
     path('place/<int:pk>/delete', views.PlaceDeleteView.as_view(), name='place-delete'),
 
+    path('feeling', views.FeelingListView.as_view(), name='feeling-list'),
     path('feeling/create', views.FeelingCreateView.as_view(), name='feeling-create'),
     path('feeling/<int:pk>', views.FeelingDetailView.as_view(), name='feeling-details'),
     path('feeling/<int:pk>/update', views.FeelingUpdateView.as_view(), name='feeling-update'),

@@ -18,7 +18,7 @@
             {% for tag in entry.tags.all %}{{ tag }}&nbsp;{% endfor %}
             <br/>
             <hr/>
-            <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Update</a>
+            <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Edit</a>
             <a class="btn btn-danger" href="{% url 'wru:entry-delete' entry.pk %}">Delete</a>
         </div>
     </div>
