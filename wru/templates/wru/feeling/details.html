@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
             <strong>Name:</strong> {{ feeling.name }}<br/>
-            <strong>Icon:</strong> {{ feeling.icon }}
+            <strong>Icon:</strong> <i class="{{ feeling.icon }}"></i>
             <br/>
             <hr/>
             <a class="btn btn-primary" href="{% url 'wru:feeling-update' feeling.pk %}">Edit</a>

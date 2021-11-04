@@ -1,4 +1,11 @@
 {% load static %}
+
+{% load custom_tags %}
+{% get_place_icon as icn_place %}
+{% get_entry_icon as icn_entry %}
+{% get_feeling_icon as icn_feeling %}
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,17 +59,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'wru:entry-list' %}">Entry</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'wru:entry-list' %}"><i class="{{ icn_entry }}"></i> Entry</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'wru:place-list' %}">Places</a>
+          <a class="nav-link" href="{% url 'wru:place-list' %}"><i class="{{ icn_place }}"></i> Places</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'wru:feeling-list' %}">Feeling</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+          <a class="nav-link" href="{% url 'wru:feeling-list' %}"><i class="{{ icn_feeling }}"></i> Feeling</a>
+        </li>        
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

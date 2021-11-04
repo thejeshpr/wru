@@ -43,7 +43,8 @@ class Feeling(models.Model):
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        self.icon = self.icon.split('"')[1]
+        if self.icon.startswith("<i class="):
+            self.icon = self.icon.split('"')[1]
         return super(Feeling, self).save(*args, **kwargs)
 
 
