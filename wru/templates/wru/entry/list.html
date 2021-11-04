@@ -16,11 +16,14 @@
             <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
             <strong>Why?:</strong> {{ entry.why }}<br/>
             <strong>Tags:</strong>
-            {% for tag in entry.tags.all %}{{ tag }}&nbsp;{% endfor %}
+            {% for tag in entry.tags.all %}
+            <span class="badge bg-dark">{{ tag }}</span>            
+            {% endfor %}
             <br/>
             <hr/>
-            <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Edit</a>
-            <a class="btn btn-danger" href="{% url 'wru:entry-delete' entry.pk %}">Delete</a>
+            <a class="btn btn-sm btn-success" href="{% url 'wru:entry-details' entry.pk %}">View</a>
+            <a class="btn btn-sm btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Edit</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'wru:entry-delete' entry.pk %}">Delete</a>
         </div>
     </div>
 </div>

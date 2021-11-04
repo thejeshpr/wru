@@ -1,0 +1,1 @@
+web: gunicorn wru_website.wsgi --log-file -

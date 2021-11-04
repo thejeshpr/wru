@@ -67,6 +67,18 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'wru:feeling-list' %}"><i class="{{ icn_feeling }}"></i> Feeling</a>
         </li>        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="las la-plus"></i> Create
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'wru:entry-create' %}"><i class="{{ icn_entry }}"></i> Entry</a></li>
+            <li><a class="dropdown-item" href="{% url 'wru:place-create' %}"><i class="{{ icn_place }}"></i> Place</a></li>
+            <li><a class="dropdown-item" href="{% url 'wru:feeling-create' %}"><i class="{{ icn_feeling }}"></i> Feeling</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

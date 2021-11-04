@@ -14,8 +14,10 @@
             <strong>Feeling:</strong> <i class="{{ entry.feeling.icon }}"></i><br/>
             <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
             <strong>Why?:</strong> {{ entry.why }}<br/>
-            <strong>Tags:</strong>
-            {% for tag in entry.tags.all %}{{ tag }}&nbsp;{% endfor %}
+            <strong>Tags:</strong>            
+            {% for tag in entry.tags.all %}
+            <span class="badge bg-dark">{{ tag }}</span>            
+            {% endfor %}
             <br/>
             <hr/>
             <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Edit</a>
