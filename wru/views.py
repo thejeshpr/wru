@@ -1,3 +1,4 @@
+from django.db import models
 from django.shortcuts import render
 from django.views.generic import edit
 from django.views import generic
@@ -32,6 +33,12 @@ class PlaceDeleteView(edit.DeleteView):
     model = Place
     template_name = 'wru/generic/delete-prompt.html'
     success_url ="/"
+
+
+class PlaceListView(generic.ListView):
+    model = Place
+    template_name = "wru/place/list.html"
+    context_object_name = "places"    
 
 
 class FeelingCreateView(edit.CreateView):

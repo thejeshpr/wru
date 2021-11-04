@@ -6,7 +6,7 @@ from . import views
 app_name = 'wru'
 
 urlpatterns = [
-    # path('', views.PlaceCreateView.as_view(), name='home'),
+    path('place', views.PlaceListView.as_view(), name='place-list'),
     path('place/create', views.PlaceCreateView.as_view(), name='place-create'),
     path('place/<int:pk>', views.PlaceDetailView.as_view(), name='place-details'),
     path('place/<int:pk>/update', views.PlaceUpdateView.as_view(), name='place-update'),

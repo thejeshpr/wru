@@ -8,7 +8,9 @@ from taggit.managers import TaggableManager
 class Place(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    desc = models.CharField(max_length=500, blank=True, null=True)
     name = models.CharField(max_length=300, unique=True)
+    url = models.URLField(max_length=3000, blank=True, null=True)
 
     def get_absolute_url(self):        
         return reverse('wru:place-details', kwargs=dict(pk=self.pk))
@@ -20,7 +22,7 @@ class Place(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        # self.name = self.name.lower()
+        self.name = self.name.lower()
         return super(Place, self).save(*args, **kwargs)
 
 
@@ -28,7 +30,7 @@ class Feeling(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=300, unique=True)
-    icon = models.CharField(max_length=100, unique=True, default="las la-question-circle")
+    icon = models.CharField(max_length=100, unique=True, default='<i class="las la-question-circle"></i>')
 
     def __str__(self) -> str:
         return self.name
@@ -41,6 +43,7 @@ class Feeling(models.Model):
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
+        self.icon = self.icon.split('"')[1]
         return super(Feeling, self).save(*args, **kwargs)
 
 
