@@ -59,10 +59,12 @@ class Entry(models.Model):
     tags = TaggableManager()
 
     def __str__(self) -> str:
-        return f"{self.place.name}:{self.date}"
+        # return f"{self.place.name}:{self.date}"
+        return self.why
 
     def __repr__(self) -> str:
-        return f"{self.place.name}:{self.date}"
+        # return f"{self.place.name}:{self.date}"
+        return self.why
 
     def get_absolute_url(self):        
         return reverse('wru:entry-details', kwargs=dict(pk=self.pk))
