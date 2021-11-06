@@ -12,7 +12,7 @@
                 <h3><i class="{{ entry.place.icon }}"></i><i class="{{ entry.feeling.icon }}"></i> {{ entry.why }} </h3>
             </div>
             <div class="card-text wru-text">
-                <strong>Place:</strong> <a href="{% url 'wru:place-details' entry.place.pk %}">{{ entry.place.name }}</a><br/>
+                <strong>Place:</strong> <a href="{% url 'wru:place-details' entry.place.pk %}">{{ entry.place.name | title }}</a><br/>
                 <strong>Feeling:</strong> <i class="{{ entry.feeling.icon }}"></i><br/>
                 <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
                 <strong>Why?:</strong> {{ entry.why }}<br/>
