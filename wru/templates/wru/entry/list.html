@@ -8,8 +8,8 @@
 <div>
     <div class="card">        
         <div class="card-body">
-            <div class="card-title wru-header wru-entry-header">
-                <h3><i class="{{ entry.place.icon }}"></i><i class="{{ entry.feeling.icon }}"></i> {{ entry.why }} </h3>
+            <div class="card-title wru-cursive wru-entry-header">
+                <h2><i class="{{ entry.place.icon }}"></i><i class="{{ entry.feeling.icon }}"></i> {{ entry.why }} </h2>
             </div>
             <div class="card-text wru-text text-muted">
                 <strong><i class="{{ icn_place }}"></i> Place:</strong> {{ entry.place.name | title }}<a href="{% url 'wru:place-details' entry.place.pk %}"><i class="las la-arrow-circle-right"></i></a><br/>
@@ -18,7 +18,7 @@
                 <!-- <strong>Why?:</strong> {{ entry.why }}<br/> -->
                 <strong><i class="{{ icn_tag }}"></i> Tags:</strong>
                 {% for tag in entry.tags.all %}
-                <span class="badge bg-dark">{{ tag }}</span>            
+                <span class="badge bg-secondary">{{ tag }}</span>            
                 {% endfor %}
                 <br/>                
             </div>            
