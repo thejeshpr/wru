@@ -8,15 +8,15 @@
 <div>
     <div class="card">        
         <div class="card-body">
-            <div class="card-title wru-header">
+            <div class="card-title wru-header wru-entry-header">
                 <h3><i class="{{ entry.place.icon }}"></i><i class="{{ entry.feeling.icon }}"></i> {{ entry.why }} </h3>
             </div>
-            <div class="card-text wru-text">
-                <strong>Place:</strong> <a href="{% url 'wru:place-details' entry.place.pk %}">{{ entry.place.name | title }}</a><br/>
-                <strong>Feeling:</strong> <i class="{{ entry.feeling.icon }}"></i><br/>
-                <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
-                <strong>Why?:</strong> {{ entry.why }}<br/>
-                <strong>Tags:</strong>
+            <div class="card-text wru-text text-muted">
+                <strong><i class="{{ icn_place }}"></i> Place:</strong> {{ entry.place.name | title }}<a href="{% url 'wru:place-details' entry.place.pk %}"><i class="las la-arrow-circle-right"></i></a><br/>
+                <strong><i class="{{ icn_feeling }}"></i> Feeling:</strong> {{ entry.feeling.name }} <i class="{{ entry.feeling.icon }}"></i><br/>
+                <strong><i class="{{ icn_created_at }}"></i> Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
+                <!-- <strong>Why?:</strong> {{ entry.why }}<br/> -->
+                <strong><i class="{{ icn_tag }}"></i> Tags:</strong>
                 {% for tag in entry.tags.all %}
                 <span class="badge bg-dark">{{ tag }}</span>            
                 {% endfor %}

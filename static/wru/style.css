@@ -9,9 +9,13 @@
 }
 
 .wru-header {
-    font-family: 'M PLUS 1p', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .wru-icon {
     font-size: 20px;
+}
+
+.wru-entry-header {
+    color: rgb(25, 122, 106);
 }
