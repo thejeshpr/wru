@@ -24,7 +24,7 @@
           
         </div>
         <div class="card-footer">
-          <small class="text-muted"><i class="las la-calendar-alt"></i>: {{ place.created_at }}</small>
+          <small class="text-muted"><i class="las la-calendar-alt"></i> {{ place.created_at }}</small>
           <div class="float-end wru-icon">
             <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-arrow-circle-right"></i></a>
             <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-edit"></i></a>
