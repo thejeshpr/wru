@@ -2,3 +2,16 @@
     background: #282828;
     border-color: #282828;
 }
+
+.wru-text {
+    font-family: 'Roboto Mono', monospace;
+    /* color: dimgrey; */
+}
+
+.wru-header {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.wru-icon {
+    font-size: 20px;
+}

@@ -8,11 +8,11 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for place in places %}
     <div class="col">
-      <div class="card h-100 text-white bg-dark">
+      <div class="card h-100">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-          <h5 class="card-title"><i class="{{ place.icon }}"></i> {{ place.name | title }}</h5>                    
-          <p class="card-text">
+          <h4 class="card-title wru-header"><i class="{{ place.icon }}"></i> {{ place.name | title }}</h4>                    
+          <p class="card-text wru-text text-muted">
             Entries: {{ place.entries.count }}<br/>
           {% if place.url %}
             URL: <a href="{{ place.url }}" target="_blank">{{ place.url }}</a><br/>
@@ -20,15 +20,15 @@
           {% if place.desc %}
             Desc: {{ place.desc }}<br/>
            {% endif %}
-          </p>
-          <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+          </p>          
           
         </div>
         <div class="card-footer">
           <small class="text-muted"><i class="las la-calendar-alt"></i>: {{ place.created_at }}</small>
-          <div class="float-end">
-            <a class="" href="{% url 'wru:place-update' place.pk %}">Edit</a>
-            <a class="" href="{% url 'wru:place-delete' place.pk %}">Delete</a>
+          <div class="float-end wru-icon">
+            <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-arrow-circle-right"></i></a>
+            <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-edit"></i></a>
+            <a href="{% url 'wru:place-delete' place.pk %}"><i class="las la-trash"></i></a>  
           </div>
         </div>
       </div>
