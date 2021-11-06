@@ -9,6 +9,7 @@ class Place(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     desc = models.CharField(max_length=500, blank=True, null=True)
+    icon = models.CharField(max_length=100, default='<i class="las la-question-circle"></i>')
     name = models.CharField(max_length=300, unique=True)
     url = models.URLField(max_length=3000, blank=True, null=True)
 
@@ -23,6 +24,8 @@ class Place(models.Model):
 
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
+        if self.icon.startswith("<i class="):
+            self.icon = self.icon.split('"')[1]
         return super(Place, self).save(*args, **kwargs)
 
 
@@ -30,7 +33,7 @@ class Feeling(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=300, unique=True)
-    icon = models.CharField(max_length=100, unique=True, default='<i class="las la-question-circle"></i>')
+    icon = models.CharField(max_length=100, default='<i class="las la-question-circle"></i>')
 
     def __str__(self) -> str:
         return self.name

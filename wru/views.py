@@ -112,4 +112,7 @@ class EntryDeleteView(edit.DeleteView):
 class EntryListView(generic.ListView):
     model = Entry
     context_object_name = 'entries'
-    template_name = 'wru/entry/list.html'    
+    template_name = 'wru/entry/list.html'
+
+    def get_queryset(self):
+        return Entry.objects.order_by('-date')

@@ -10,6 +10,7 @@ class PlaceForm(ModelForm):
         model = Place
         fields = [
             'name',
+            'icon',
             'desc',
             'url'
         ]
