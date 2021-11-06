@@ -115,4 +115,4 @@ class EntryListView(generic.ListView):
     template_name = 'wru/entry/list.html'
 
     def get_queryset(self):
-        return Entry.objects.order_by('-date')
+        return Entry.objects.order_by('-date', '-pk')
