@@ -17,9 +17,14 @@
 }
 
 .wru-entry-header {
+    font-family: 'Spartan', sans-serif;
     color: rgb(25, 122, 106);
 }
 
 .wru-cursive {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive;    
+}
+
+.wru-date {
+    font-family: 'Spartan', sans-serif;
 }
