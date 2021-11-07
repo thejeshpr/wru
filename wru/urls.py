@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
@@ -26,5 +26,7 @@ urlpatterns = [
     path('entry/<int:pk>', views.EntryDetailView.as_view(), name='entry-details'),
     path('entry/<int:pk>/update', views.EntryUpdateView.as_view(), name='entry-update'),
     path('entry/<int:pk>/delete', views.EntryDeleteView.as_view(), name='entry-delete'),
+
+    # re_path('tag/(?P<tag>\w+)/entries', views.EntryListViewByTag.as_view(), name='tag-entries'),
     
 ]

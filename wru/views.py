@@ -119,8 +119,16 @@ class EntryListView(generic.ListView):
     template_name = 'wru/entry/list.html'
 
     def get_queryset(self):
-        return Entry.objects.order_by('-date', '-pk')
+        tag = self.request.GET.get('tag')
+        if tag:
+            return Entry.objects.filter(tags__name__in=[tag]).order_by('-date', '-pk')        
+        else:
+            return Entry.objects.order_by('-date', '-pk')    
 
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.request.GET.get('tag')
+        return context
 
 @method_decorator(login_required(login_url='/login/'), name='dispatch')
 class EntryListViewByPlace(generic.ListView):
@@ -152,3 +160,19 @@ class EntryListViewByFeeling(generic.ListView):
 
     def get_queryset(self):        
         return Entry.objects.filter(feeling__pk=self.kwargs.get('feeling_pk')).order_by('-date', '-pk')
+
+
+# @method_decorator(login_required(login_url='/login/'), name='dispatch')
+# class EntryListViewByTag(generic.ListView):
+#     model = Entry
+#     context_object_name = 'entries'
+#     paginate_by = 20
+#     template_name = 'wru/entry/list_by_tag.html'
+    
+#     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+#         context = super().get_context_data(**kwargs)        
+#         context['tag'] = self.kwargs.get('tag')
+#         return context
+
+#     def get_queryset(self):        
+#         return Entry.objects.filter(tags=self.kwargs.get('tag')).order_by('-date', '-pk')

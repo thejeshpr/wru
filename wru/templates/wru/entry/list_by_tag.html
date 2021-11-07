@@ -5,14 +5,14 @@
 
 <nav class="wru-text" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'wru:feeling-list' %}">Feelings</a></li>          
-      <li class="breadcrumb-item active" aria-current="page">{{ feeling }}</li>
+      <li class="breadcrumb-item"><a href="#">Tags</a></li>          
+      <li class="breadcrumb-item active" aria-current="page">{{ tag }}</li>
     </ol>
 </nav>
 
 {% for entry in entries %}
 
-<div>    
+<div>        
     {% include "wru/entry/list_item.html" %}
 </div>
 <br/>
