@@ -42,6 +42,7 @@ class PlaceDeleteView(edit.DeleteView):
 class PlaceListView(generic.ListView):
     model = Place
     template_name = "wru/place/list.html"
+    paginate_by = 20
     context_object_name = "places"    
 
 
@@ -77,6 +78,7 @@ class FeelingDeleteView(edit.DeleteView):
 class FeelingListView(generic.ListView):
     model = Feeling
     template_name = "wru/feeling/list.html"
+    paginate_by = 20
     context_object_name = "feelings"    
 
 
@@ -112,6 +114,7 @@ class EntryDeleteView(edit.DeleteView):
 class EntryListView(generic.ListView):
     model = Entry
     context_object_name = 'entries'
+    paginate_by = 20
     template_name = 'wru/entry/list.html'
 
     def get_queryset(self):

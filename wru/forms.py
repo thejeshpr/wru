@@ -12,7 +12,8 @@ class PlaceForm(ModelForm):
             'name',
             'icon',
             'desc',
-            'url'
+            'url',
+            'image'
         ]
 
 

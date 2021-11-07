@@ -12,6 +12,7 @@ class Place(models.Model):
     icon = models.CharField(max_length=100, default='<i class="las la-question-circle"></i>')
     name = models.CharField(max_length=300, unique=True)
     url = models.URLField(max_length=3000, blank=True, null=True)
+    image = models.URLField(max_length=3000, blank=True, null=True)
 
     def get_absolute_url(self):        
         return reverse('wru:place-details', kwargs=dict(pk=self.pk))

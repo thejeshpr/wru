@@ -9,7 +9,9 @@
     {% for place in places %}
     <div class="col">
       <div class="card h-100">
-        <!-- <img src="" class="card-img-top" alt="..."> -->
+        {% if place.image %}
+        <img src="{{ place.image }}" height="200" class="card-img-top" alt="...">
+        {% endif %}
         <div class="card-body">
           <h4 class="card-title wru-header"><i class="{{ place.icon }}"></i> {{ place.name | title }}</h4>                    
           <p class="card-text wru-text text-muted">
@@ -34,6 +36,9 @@
       </div>
     </div>    
   {% endfor %}
+
+  {% include "wru/generic/pagination.html" %}
+
 </div>
 
 
