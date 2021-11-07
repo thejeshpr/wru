@@ -1,3 +1,4 @@
+from typing import Any, Dict, List
 from django.db import models
 from django.shortcuts import render
 from django.views.generic import edit
@@ -119,3 +120,35 @@ class EntryListView(generic.ListView):
 
     def get_queryset(self):
         return Entry.objects.order_by('-date', '-pk')
+
+
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
+class EntryListViewByPlace(generic.ListView):
+    model = Entry
+    context_object_name = 'entries'
+    paginate_by = 20
+    template_name = 'wru/entry/list_by_place.html'
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)        
+        context['place'] = Place.objects.get(pk=self.kwargs.get('place_pk'))
+        return context
+
+    def get_queryset(self):        
+        return Entry.objects.filter(place__pk=self.kwargs.get('place_pk')).order_by('-date', '-pk')
+
+
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
+class EntryListViewByFeeling(generic.ListView):
+    model = Entry
+    context_object_name = 'entries'
+    paginate_by = 20
+    template_name = 'wru/entry/list_by_feeling.html'
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)        
+        context['feeling'] = Feeling.objects.get(pk=self.kwargs.get('feeling_pk'))
+        return context
+
+    def get_queryset(self):        
+        return Entry.objects.filter(feeling__pk=self.kwargs.get('feeling_pk')).order_by('-date', '-pk')

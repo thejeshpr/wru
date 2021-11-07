@@ -15,7 +15,7 @@
         <div class="card-body">
           <h4 class="card-title wru-header"><i class="{{ place.icon }}"></i> {{ place.name | title }}</h4>                    
           <p class="card-text wru-text text-muted">
-            Entries: {{ place.entries.count }}<br/>
+            Entries: <a href="{% url 'wru:place-entries' place_pk=place.pk %}">{{ place.entries.count }}</a><br/>
           {% if place.url %}
             URL: <a href="{{ place.url }}" target="_blank">{{ place.url }}</a><br/>
           {% endif %}
@@ -28,7 +28,7 @@
         <div class="card-footer">
           <small class="text-muted"><i class="las la-calendar-alt"></i> {{ place.created_at }}</small>
           <div class="float-end wru-icon">
-            <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-arrow-circle-right"></i></a>
+            <a href="{% url 'wru:place-details' place.pk %}"><i class="las la-arrow-circle-right"></i></a>
             <a href="{% url 'wru:place-update' place.pk %}"><i class="las la-edit"></i></a>
             <a href="{% url 'wru:place-delete' place.pk %}"><i class="las la-trash"></i></a>  
           </div>
@@ -37,10 +37,8 @@
     </div>    
   {% endfor %}
 
-  {% include "wru/generic/pagination.html" %}
-
 </div>
-
+{% include "wru/generic/pagination.html" %}
 
 {% endblock %}
 
