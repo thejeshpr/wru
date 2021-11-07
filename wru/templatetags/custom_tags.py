@@ -2,10 +2,15 @@ from django import template
 
 register = template.Library()
 
+
+@register.simple_tag
+def get_brand_icon():
+    return "las la-globe"
+
+
 @register.simple_tag
 def get_place_icon():
-    return "las la-map-marker"
-
+    return "las la-map-marked-alt"
 
 @register.simple_tag
 def get_entry_icon():

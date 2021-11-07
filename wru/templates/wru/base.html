@@ -6,6 +6,7 @@
 {% get_feeling_icon as icn_feeling %}
 {% get_tag_icon as icn_tag %}
 {% get_created_at_icon as icn_created_at %}
+{% get_brand_icon as icn_brand %}
 
 
 <!doctype html>
@@ -55,7 +56,7 @@
     
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'wru:entry-list' %}">WRU</a>
+    <a class="navbar-brand wru-header" href="{% url 'wru:entry-list' %}"><i class="{{ icn_brand }}"></i> WRU</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
