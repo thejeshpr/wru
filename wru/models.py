@@ -61,6 +61,7 @@ class Entry(models.Model):
     why = models.CharField(help_text="Why at this Place?", max_length=500, blank=True, null=True)
     feeling = models.ForeignKey('Feeling', related_name='entries', on_delete=models.CASCADE)
     tags = TaggableManager()
+    desc = models.TextField(help_text="description", blank=True, null=True)
 
     def __str__(self) -> str:
         # return f"{self.place.name}:{self.date}"

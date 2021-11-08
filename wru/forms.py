@@ -35,6 +35,7 @@ class EntryForm(ModelForm):
             'feeling',
             'why',
             'tags',
+            'desc'
         ]
     date = forms.DateField(
         # input_formats=['%d-%m-%Y'],

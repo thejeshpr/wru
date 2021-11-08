@@ -5,25 +5,39 @@
 
 {% block content %}
 <div>
-    <div class="card">
-        <div class="card-header">
-            <h3><i class="{{ entry.feeling.icon }}"></i> Entry</h3>
-        </div>
+    <div class="card">                
         <div class="card-body">
-            <strong>Place:</strong> {{ entry.place.name }}<br/>
-            <strong>Feeling:</strong> <i class="{{ entry.feeling.icon }}"></i><br/>
-            <strong>Date:</strong> {{ entry.date | date:'d/M/Y' }}<br/>
-            <strong>Why?:</strong> {{ entry.why }}<br/>
-            <strong>Tags:</strong>            
-            {% for tag in entry.tags.all %}
-            <span class="badge bg-dark">{{ tag }}</span>            
-            {% endfor %}
-            <br/>
-            <hr/>
-            <a class="btn btn-primary" href="{% url 'wru:entry-update' entry.pk %}">Edit</a>
-            <a class="btn btn-danger" href="{% url 'wru:entry-delete' entry.pk %}">Delete</a>
+            <div class="card-title wru-entry-header">
+                <h2>#{{ entry.pk }} <i class="{{ entry.place.icon }}"></i><i class="{{ entry.feeling.icon }}"></i> {{ entry.why }} </h2>
+            </div>
+            <div class="card-text wru-text text-muted">
+                <strong><i class="{{ icn_place }}"></i> Place:</strong> {{ entry.place.name | title }}<a href="{% url 'wru:place-details' entry.place.pk %}"><i class="las la-arrow-circle-right"></i></a><br/>
+                <strong><i class="{{ icn_feeling }}"></i> Feeling:</strong> {{ entry.feeling.name }} <i class="{{ entry.feeling.icon }}"></i><br/>                
+                <strong><i class="{{ icn_tag }}"></i> Tags:</strong>
+                {% for tag in entry.tags.all %}
+                <a href="{% url 'wru:entry-list' %}?tag={{ tag }}"><span class="badge bg-secondary">{{ tag }}</span></a>
+                {% endfor %}
+                <br/>
+                {% if entry.desc %}
+                <div class="card" style="border: 0ch;">
+                    <div class="card-body">
+                        <div class="card-text">
+                            {{ entry.desc | linebreaks }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>            
+        </div>
+        <div class="card-footer">
+            <small class="text-muted"><i class="las la-calendar-alt"></i> {{ entry.date }}</small>
+            <div class="float-end wru-icon">              
+              <a href="{% url 'wru:entry-update' entry.pk %}"><i class="las la-edit"></i></a>
+              <a href="{% url 'wru:entry-delete' entry.pk %}"><i class="las la-trash"></i></a>  
+            </div>
         </div>
     </div>
+    
 </div>
 {% endblock %}
 
